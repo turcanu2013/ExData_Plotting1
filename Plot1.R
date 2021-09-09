@@ -1,0 +1,6 @@
+data<-read.table("household_power_consumption.txt", sep=";", header = TRUE)
+febdata_log<- subset(data, Date == "1/2/2007" | Date== "2/2/2007")
+febdata_log_num<-as.numeric(paste(febdata_log$Global_active_power))
+png(file="plot1.png", height=480, width=480)
+hist(febdata_log_num,xlab= "Global Active Power (kilowatts)", ylab = "Frequency", main= "Global Active Power", col="red")
+dev.off()
